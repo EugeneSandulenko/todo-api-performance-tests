@@ -1,6 +1,6 @@
+import ApiConfig.Companion.applicationJson
 import ApiConfig.Companion.baseUrl
 import ApiConfig.Companion.browserAgent
-import ApiConfig.Companion.headers
 import io.gatling.javaapi.core.CoreDsl
 import io.gatling.javaapi.http.HttpDsl
 
@@ -11,7 +11,8 @@ class SimulationConfig {
 
         val httpProtocol = HttpDsl.http
             .baseUrl(baseUrl)
-            .acceptHeader(headers)
+            .acceptHeader(applicationJson)
+            .contentTypeHeader(applicationJson)
             .userAgentHeader(browserAgent)
     }
 }
