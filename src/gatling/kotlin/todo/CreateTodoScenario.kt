@@ -1,12 +1,12 @@
 package todo
 
-import Scenario.Companion.createTodo
+import Scenario.Companion.createDeleteTodo
 import SimulationConfig.Companion.httpProtocol
 import SimulationConfig.Companion.singleUser
 import io.gatling.javaapi.core.Simulation
 
 class CreateTodoScenario  : Simulation() {
     init {
-        setUp(createTodo.injectOpen(singleUser).protocols(httpProtocol))
+        setUp(createDeleteTodo.injectOpen(singleUser).protocols(httpProtocol))
     }
 }

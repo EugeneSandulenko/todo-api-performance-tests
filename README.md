@@ -18,7 +18,14 @@ Template to run tests:
 ./gradlew gatlingRun-<test_class_name>
 ```
 
-Example. Run GetTodos test class:
+Examples. 
+1. Run GetTodos test class:
 ```
 ./gradlew gatlingRun-todo.GetTodos
+```
+
+2. Run MultiUserScenario:
+
+```
+./gradlew gatlingRun-todo.MultiUserScenario
 ```
