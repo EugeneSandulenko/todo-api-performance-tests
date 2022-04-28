@@ -23,7 +23,7 @@ class Scenario {
             .pause(1)
             .exec(
                 http("get created todo")
-                    .get("${baseUrl}${todosUrl}/\${TodoId}")
+                    .get("#{baseUrl}#{todosUrl}/#{TodoId}")
                     .check(status().`is`(200))
                     .check(jsonPath("$.id").saveAs("TodoId"))
 
@@ -31,18 +31,18 @@ class Scenario {
             .pause(3)
             .exec(
                 http("patch created todo")
-                    .patch("${baseUrl}${todosUrl}/\${TodoId}")
+                    .patch("#{baseUrl}#{todosUrl}/#{TodoId}")
                     .body(StringBody(patchTodo)).asJson()
                     .check(status().`is`(200))
             )
             .exec(
                 http("get all todos")
-                    .get("${baseUrl}${todosUrl}")
+                    .get("#{baseUrl}#{todosUrl}")
                     .check(status().`is`(200))
             )
             .exec(
                 http("delete todo")
-                    .delete("${baseUrl}${todosUrl}/\${TodoId}")
+                    .delete("#{baseUrl}#{todosUrl}/#{TodoId}")
                     .check(status().`is`(204))
             )
     }
